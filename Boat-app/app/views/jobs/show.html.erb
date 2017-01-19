@@ -1,1 +1,28 @@
 <h1>show page for jobs</h1>
+
+<h1>profile</h1>
+
+    <%= @job.name%><br>
+    <%= @job.description%><br>
+    <%= @job.origin%><br>
+    <%= @job.destination%><br>
+    <%= @job.cost%><br>
+    <%= @job.amt_container%><br>
+
+
+
+
+<h1>job boats</h1><br>
+
+<hr>
+
+<% @job_boats.each do |boat|%>
+    <%= boat.id%>
+    <%= boat.name%>
+    <%= boat.location%>
+    <%= image_tag boat.image.url%>
+    <%= link_to ("boat show page"), boat_path(boat.id) %> |
+    <%= link_to ("boat edit page"), edit_boat_path(boat.id) %> |
+    <%= link_to 'Delete boat',  { action: :destroy, id: boat.id }, method: :delete %>
+    <hr>
+<% end %>

@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
 
- before_action :authenticate_user!
+ before_action :authenticate_company!
 
 
       def index
@@ -11,15 +11,8 @@ class CompaniesController < ApplicationController
         @message = "my new company"
       end
 
-      def  create
-        @company = Company.create(
-        
-        )
-
-
+      def create
       end
-
-
 
       def show
         @company = Company.find(params[:id])

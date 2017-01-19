@@ -1,20 +1,24 @@
 <h1>show page for companies</h1>
+<%= @company.name %>,
+<%= @company.address %>,
 <%= @company.email %>
+
 <br>
 
 <!-- this is wheere image tage will be  -->
-	<hr>
-
-	<%= link_to "create company", new_company_path %> <br>
+<%=  image_tag @company.image.url%>
 
 	<hr>
-	<% @company_boats.each do |boats| %>
+
+
+	<hr>
+	<% @company_boats.each do |boat| %>
 	  <%= boat.id %>. <br>
 	  <%= boat.name %>.<br>
 	  <%= boat.amt_container %>.<br>
 	  <%= boat.location %>.<br>
 
-<!-- this is wheere image tage will be  -->
+		<%= image_tag boat.image.url%>
 
 	  <br><br>
 	<% end %>

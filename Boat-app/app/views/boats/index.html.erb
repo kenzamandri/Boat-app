@@ -1,1 +1,22 @@
-<h1>index page for boats</h1>
+
+<h3>All Boats: </h3>
+
+<%= link_to ("Create new boat"), new_boat_path %>
+
+<br><br>
+<hr>
+<% @boats.each do |boat| %>
+  <%= boat.id %>
+  <%= boat.name %> <br>
+  <%= boat.amt_container %> <br>
+  <%= boat.location %> <br>
+ <br>
+
+  <br><br>
+
+  <%= link_to ("boat show page"), boat_path(boat.id) %> |
+  <%= link_to ("boat edit page"), edit_boat_path(boat.id) %> |
+  <%= link_to 'Delete boat',  { action: :destroy, id: boat.id }, method: :delete %>
+  <hr>
+
+<% end %>

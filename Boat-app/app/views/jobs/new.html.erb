@@ -1,1 +1,33 @@
 <h1>new page for jobs</h1>
+
+<%= form_for @job do |f| %>
+
+ <%= f.label :name %>
+ <%= f.text_field :name %> <br>
+
+ <%= f.label :description %>
+ <%= f.text_field :description %> <br>
+
+ <%= f.label :origin %>
+ <%= f.text_field :origin %> <br>
+
+ <%= f.label :destination %>
+ <%= f.text_field :destination %> <br>
+
+ <%= f.label :cost %>
+ <%= f.number_field :cost %> <br>
+
+ <%= f.label :amt_container %>
+ <%= f.text_field :amt_container %> <br>
+
+  <!-- checkboxes: -->
+  <p>Boats:</p>
+  <% @boats_arr.each do |boat| %>
+    <%= check_box_tag "boat[boat_ids][]", boat.id %>
+    <%= f.label boat.name %>
+    <br>
+  <% end %>
+ <br><br>
+
+ <%= f.submit %>
+<% end %>

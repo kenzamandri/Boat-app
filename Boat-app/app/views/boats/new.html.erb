@@ -1,1 +1,21 @@
 <h1>new page for boats</h1>
+
+<%= form_for @boat do |f| %>
+ <%= f.label :name %>
+ <%= f.text_field :name %> <br>
+
+ <%= f.label :amt_container %>
+ <%= f.number_field :amt_container %> <br>
+
+ <%= f.label :location %>
+ <%= f.select :location, ['NYC', 'LA', 'DC', 'CA']%>
+
+ <%= f.label :company %><br>
+ <%= f.collection_select :company_id, Company.all, :id, :email%><br>
+
+ <%= f.file_field :image %>
+
+ <br><br>
+
+ <%= f.submit %>
+<% end %>

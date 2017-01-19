@@ -1,1 +1,25 @@
 <h1>index page for jobs</h1>
+<h3>All Jobs: </h3>
+
+<%= link_to ("Create new job"), new_job_path %>
+
+<br><br>
+
+<% @jobs.each do |job| %>
+  <%= job.id %>.
+  <%= job.description %> <br>
+  <%= job.origin %> <br>
+  <%= job.destination %> <br>
+  <%= job.cost %> <br>
+  <%= job.amt_container %> <br>
+
+ <br>
+
+  <br><br>
+
+  <%= link_to ("Job show page"), job_path(job.id) %> |
+  <%= link_to ("Job edit page"), edit_job_path(job.id) %> |
+  <%= link_to 'Delete job',  { action: :destroy, id: job.id }, method: :delete %>
+  <hr>
+
+<% end %>

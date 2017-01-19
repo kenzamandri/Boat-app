@@ -25,4 +25,8 @@ Rails.application.routes.draw do
   resources :jobs
 
 
+   get "/jobs/:id/add_boat"    => "jobs#add_boat"
+   get "/jobs/:id/remove_boat"    => "jobs#remove_boat"
+  
+
 end
