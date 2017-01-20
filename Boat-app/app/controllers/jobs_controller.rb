@@ -1,36 +1,42 @@
 class JobsController < ApplicationController
 
   def index
-      @jobs =Job.all
+    @jobs =Job.all
   end
 
   def new
-      @message = "This is new page"
-      @job = Job.new
-      #this is proving an array of all the boats within this job
-      @boats_arr = Boat.all
+    @message = "This is new page"
+    @job = Job.new
+    #this is proving an array of all the boats within this job
+    @boats_arr = Boat.all
+
+    # errors:
+    puts "ERRORS:"
+    puts @job.errors.full_messages.inspect
+
   end
 
   def create
-      @new_job =Job.create(
+    puts "check here", params.inspect
+    @new_job = Job.create(
       name: params[:job][:name],
       description: params[:job][:description],
       origin: params[:job][:origin],
       destination: params[:job][:destination],
       cost: params[:job][:cost],
       amt_container: params[:job][:amt_container]
-      )
-      puts "PARAMAMAAMAMMA", params.inspect
-        params[:boat][:boat_ids].each do |boat_id|
-          @id = boat_id.to_i
-          @new_job.boats << Boat.find(@id)
-        end
+    )
+    
+    params[:boat][:boat_ids].each do |boat_id|
+      @id = boat_id.to_i
+      @new_job.boats << Boat.find(@id)
+    end
 
-      if (@job)
-        redirect_to url_for(:controller => :jobs, :action => :index)
-      else
-        redirect_to url_for(:controller => :jobs, :action => :new)
-      end
+    if (@new_job)
+      redirect_to url_for(:controller => :jobs, :action => :index)
+    else
+      redirect_to url_for(:controller => :jobs, :action => :new)
+    end
   end
 
 
@@ -38,6 +44,9 @@ class JobsController < ApplicationController
       @job =Job.find(params[:id])
       # this is how you obtain all the boats of one specific job
       @job_boats = @job.boats
+      @boats = Boat.all
+      puts "HOW SHOW SHOW", @job_boats
+      # @boats_job = Job.where(params[:boat][:boat_ids])
 
   end
 

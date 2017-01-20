@@ -11,7 +11,6 @@ class BoatsController < ApplicationController
 
   def create
 
-
     @boat = Boat.create(
       name: params[:boat][:name],
       location: params[:boat][:location],
@@ -48,7 +47,7 @@ class BoatsController < ApplicationController
         location: params[:boat][:location],
         amt_container: params[:boat][:amt_container].to_i,
         company_id: params[:boat][:company_id],
-          image: params[:boat][:image] 
+          image: params[:boat][:image]
       })
 
       if (@boat)
@@ -62,6 +61,5 @@ class BoatsController < ApplicationController
     Boat.delete(params[:id])
     redirect_to url_for(:controller => :boats, :action => :index)
   end
-
 
 end
