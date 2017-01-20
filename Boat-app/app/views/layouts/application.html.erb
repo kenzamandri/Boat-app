@@ -3,7 +3,7 @@
   <head>
     <!DOCTYPE html>
     <html lang="en">
-    
+
     <title>BoatApp</title>
     <%= csrf_meta_tags %>
     <!--  Bootstrap-->
@@ -15,7 +15,7 @@
 
   <body>
 
-
+    <div class="container">
         <nav>
           <% if  (company_signed_in?)%>
                   <%= link_to "Sign out", { :action => "destroy",  :controller=> "devise/sessions"}, method: :delete %>
@@ -23,16 +23,23 @@
                   <%= link_to "Sign In", new_company_session_path %>
                   <%= link_to "Sign Up", new_company_registration_path %>
             <% end %>
-        </nav>
+
 
 
         <%= link_to ("boats home page"), boats_path %> |
         <%= link_to ("jobs home page"), jobs_path %> |
         <%= link_to ("companies home page"), companies_path %> |
+      </nav>
+    </div>
 
+    <div class="container">
+      <div class="logo">
+        <!-- <%= image_tag "boat-ship.jpg" %> -->
+      </div>
+    </div>
 
         <p class="notice"><%= notice %></p>
-         <p class="alert"><%= alert %></p>
+        <p class="alert"><%= alert %></p>
       <%= yield %>
     </div>
   </body>

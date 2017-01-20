@@ -1,30 +1,41 @@
 body {
   // background-image: url("background.jpg");
-  background-color: #F8F9F9;
+  background-color: #EAEDED;
   width: 100%;
   text-align: center;
   padding: 10px;
-  
-
-      nav {
-        background-image: url("boat-ship.jpg");
-        min-width: 100%;
-        height:400px;
-        background-size: cover;
-        background-repeat: no-repeat;
-        padding: 10px;
-        font-size: 20px;
-        color: #343636;
 
 
+  nav {
+    background-color: #7FB3D5;
+    min-width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+    background-position: center;
 
-        nav a {
-          padding: 10px;
-          text-decoration: none;
-          color: #343636;
-        }
+    nav a {
+      padding: 10px;
+      text-decoration: none;
+      background-color: white;
+    }
 
-
+    .field .center {
+      padding-left: 150px;
 
     }
+
+  } // end nav
+
+  .logo {
+    background-image: url("boat-ship.jpg");
+    width: inherit;
+    height:200px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
   }
+
+} // end body
