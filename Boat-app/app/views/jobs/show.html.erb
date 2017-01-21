@@ -15,9 +15,10 @@
 <h1>job boats</h1><br>
 
 <hr>
-
+<% @boat_ids_arr = []%>
 <% @job_boats.each do |boat|%>
     <%= boat.id%>
+    <%@boat_ids_arr << boat.id  %>
     <%= boat.name%>
     <%= boat.location%>
     <%= image_tag boat.image.url%>
@@ -25,4 +26,25 @@
     <%= link_to ("boat edit page"), edit_boat_path(boat.id) %> |
     <%= link_to 'Delete boat',  { action: :destroy, id: boat.id }, method: :delete %>
     <hr>
+<% end %>
+
+
+<% puts "final array ", @boat_ids_arr%>
+
+<% @all_ids = []%>
+<% @boats.each do |boat|%>
+    <% boat.id%>
+    <%@all_ids << boat.id  %>
+<% end %>
+<%puts "BOAT other ID", @all_ids%>
+
+
+<% @therest_ids = @all_ids-@boat_ids_arr%>
+<%puts "CHECKHERE", @therest_ids%>
+
+<hr>
+<% @therest_ids.each do |boat|%>
+    <%= Boat.find(boat).id%>. <br>
+    <%= Boat.find(boat).name%> <br>
+    <%= Boat.find(boat).amt_container%> <br>
 <% end %>

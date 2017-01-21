@@ -5,6 +5,9 @@
 	<%= @company.address %>,
 	<%= @company.email %>
 
+	<%= link_to ("Comp edit page"), edit_company_registration_path(@company.id) %> |
+
+
 	<br>
 
 	<!-- this is wheere image tage will be  -->
@@ -20,7 +23,7 @@
 		  <%= boat.amt_container %>.<br>
 		  <%= boat.location %>.<br>
 
-			<%= image_tag boat.image.url%>
+			<%= image_tag boat.image.url(:thumb)%>
 
 
 		  <br><br>

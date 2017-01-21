@@ -20,8 +20,8 @@
           <% if  (company_signed_in?)%>
                   <%= link_to "Sign out", { :action => "destroy",  :controller=> "devise/sessions"}, method: :delete %>
             <% else %>
-                  <%= link_to "Sign In", new_company_session_path %>
-                  <%= link_to "Sign Up", new_company_registration_path %>
+                  <%= link_to "Sign In", new_company_session_path %> |
+                  <%= link_to "Sign Up", new_company_registration_path %> |
             <% end %>
 
 
