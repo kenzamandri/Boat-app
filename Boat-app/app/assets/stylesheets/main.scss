@@ -48,8 +48,23 @@ body {
   }
 
   img {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
   }
+
+  .centerImg {
+    padding-left: 170px;
+  }
+  .jumbotron {
+    margin-top: 100px;
+    background-color: #4D7C9B;
+    opacity: 0.8;
+    background-position: center;
+    color: #F9F1E4;
+    .message {
+      font-size: 40px;
+    }
+  }
+
 
 } // end body

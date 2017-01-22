@@ -12,19 +12,19 @@
 
 
 
-<h1>job boats</h1><br>
+<h1>job assigned to boats</h1><br>
 
 <hr>
 <% @boat_ids_arr = []%>
 <% @job_boats.each do |boat|%>
     <%= boat.id%>
-    <%@boat_ids_arr << boat.id  %>
-    <%= boat.name%>
-    <%= boat.location%>
-    <%= image_tag boat.image.url%>
-    <%= link_to ("boat show page"), boat_path(boat.id) %> |
-    <%= link_to ("boat edit page"), edit_boat_path(boat.id) %> |
-    <%= link_to 'Delete boat',  { action: :destroy, id: boat.id }, method: :delete %>
+    <%@boat_ids_arr << boat.id  %><br>
+    <%= boat.name%><br>
+    <%= boat.location%><br>
+    <%= image_tag boat.image.url%><br>
+    <%= link_to ("boat show page"), boat_path(boat.id) %> <br>
+    <%= link_to ("boat edit page"), edit_boat_path(boat.id) %> <br>
+    <%= link_to 'Delete boat',  { action: :destroy, id: boat.id }, method: :delete %><br>
     <hr>
 <% end %>
 
