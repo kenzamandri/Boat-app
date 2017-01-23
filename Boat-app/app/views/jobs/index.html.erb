@@ -18,8 +18,10 @@
 
   <br><br>
 
-  <%= link_to ("Job show page"), job_path(job.id) %> |
-  <%= link_to ("Job edit page"), edit_job_path(job.id) %> |
+  <%= link_to ("Job show page"), job_path(job.id) %>
+  <br>
+  <%= link_to ("Job edit page"), edit_job_path(job.id) %>
+  <br>
   <%= link_to 'Delete job',  { action: :destroy, id: job.id }, method: :delete %>
   <hr>
 

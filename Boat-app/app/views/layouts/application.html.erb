@@ -10,6 +10,9 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -18,7 +21,7 @@
     <div class="container">
         <nav>
           <% if  (company_signed_in?)%>
-                  <%= link_to "Sign out", { :action => "destroy",  :controller=> "devise/sessions"}, method: :delete %>
+                  <%= link_to "Sign out", { :action => "destroy",  :controller=> "devise/sessions"}, method: :delete %> |
             <% else %>
                   <%= link_to "Sign In", new_company_session_path %> |
                   <%= link_to "Sign Up", new_company_registration_path %> |
@@ -40,7 +43,21 @@
 
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
-      <%= yield %>
+
+        <%= yield %>
+    <footer class="container-fluid bg-4 text-center">
+      <p>Contact Us At:  <a href="http://www.w3schools.com">www.fastship.com</a></p>
+      <form class="form-inline">
+       <div class="input-group">
+         <input type="email" class="form-control" size="50" placeholder="Email Address" required>
+         <div class="input-group-btn">
+           <button type="button" class="btn btn-warning">Subscribe</button>
+         </div>
+       </div>
+     </form>
+    </footer>
+
+
     </div>
   </body>
 </html>

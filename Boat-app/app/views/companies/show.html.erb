@@ -1,14 +1,19 @@
 <!-- <div class="container"> -->
 <div class="container">
 	<h1>show page for companies</h1>
-	<%= @company.name %>,
-	<%= @company.address %>,
-	<%= @company.email %>
-
-	<%= link_to ("Comp edit page"), edit_company_registration_path(@company.id) %> |
-
-
 	<br>
+	<%= @company.name %>,
+	<br>
+	<%= @company.address %>,
+	<br>
+	<%= @company.email %>
+	<br><br>
+
+	<%= link_to ("Edit Company info"),
+	edit_company_registration_path(@company.id) %>
+
+
+	<br><br>
 
 	<!-- this is wheere image tage will be  -->
 	<%=  image_tag @company.image.url%>
@@ -23,7 +28,7 @@
 		  <%= boat.amt_container %>.<br>
 		  <%= boat.location %>.<br>
 
-			<%= image_tag boat.image.url(:thumb)%>
+			<%= image_tag boat.image.url(:thumb) %>
 
 
 		  <br><br>
