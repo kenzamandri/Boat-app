@@ -26,11 +26,11 @@ class JobsController < ApplicationController
       cost: params[:job][:cost],
       amt_container: params[:job][:amt_container]
     )
-    
+
     params[:boat][:boat_ids].each do |boat_id|
-      @id = boat_id.to_i
-      @new_job.boats << Boat.find(@id)
+      @new_job.boats << Boat.find(boat_id.to_i)
     end
+    puts "THIS IS NEW_JOB", @new_job
 
     if (@new_job)
       redirect_to url_for(:controller => :jobs, :action => :index)
@@ -69,7 +69,7 @@ class JobsController < ApplicationController
       @job.boats.clear
       # Add genres to book:
       # Genre comes in as an array of strings
-      params[:job][:boat_ids].each do |boat_id|
+      params[:boat][:boat_ids].each do |boat_id|
         @job.boats << Boat.find(boat_id.to_i)
       end
 
@@ -85,18 +85,18 @@ class JobsController < ApplicationController
     redirect_to url_for(:controller => :jobs, :action => :index)
   end
 
-  def add_boat
-    @job = Job.find(params[:id])
-    @boat = Boat.find(params[:id])
-
-    @job.boats.push(@boat)
-  end
-  def remove_boat
-    @job = Job.find(params[:id])
-    @boat = Boat.find(params[:id])
-
-    @job.boats.delete(@boat)
-  end
+  # def add_boat
+  #   @job = Job.find(params[:id])
+  #   @boat = Boat.find(params[:id])
+  #
+  #   @job.boats.push(@boat)
+  # end
+  # def remove_boat
+  #   @job = Job.find(params[:id])
+  #   @boat = Boat.find(params[:id])
+  #
+  #   @job.boats.delete(@boat)
+  # end
 
 
 end
